@@ -1,8 +1,61 @@
 ---
+// src/pages/index.astro
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import { getCaseStudySlugs, getCaseStudyConfig } from '../utils/getCaseStudies';
+
+const slugs = getCaseStudySlugs();
+const studies = slugs.map(slug => getCaseStudyConfig(slug));
 ---
-<Base title="Test">
+
+<Base title="Jonathan Blakemore — SEO Manager">
   <Header />
-  <main class="p-8 text-heading">Hello world</main>
+
+  <main class="mx-auto max-w-4xl px-6 pb-20 pt-16">
+
+    <!-- Hero -->
+    <section class="mb-16 border-b border-border pb-14">
+      <div class="mb-3 text-[10px] uppercase tracking-widest text-accent">SEO Manager</div>
+      <h1 class="mb-4 text-5xl font-extrabold leading-tight tracking-tight text-heading">
+        Jonathan Blakemore
+      </h1>
+      <p class="mb-8 max-w-xl text-base leading-relaxed text-muted">
+        I grow organic search traffic through technical SEO, content strategy, and data-driven
+        optimisation. Here&apos;s the proof.
+      </p>
+      <!-- Hardcoded headline stats — update when adding case studies -->
+      <div class="flex flex-wrap gap-3">
+        <div class="rounded-lg border border-border bg-surface px-5 py-4">
+          <div class="text-2xl font-extrabold text-accent">+851%</div>
+          <div class="mt-1 text-[10px] text-subtle">Non-Brand Traffic</div>
+        </div>
+        <div class="rounded-lg border border-border bg-surface px-5 py-4">
+          <div class="text-2xl font-extrabold text-accent">968k</div>
+          <div class="mt-1 text-[10px] text-subtle">Non-Brand Visits/mo</div>
+        </div>
+        <div class="rounded-lg border border-border bg-surface px-5 py-4">
+          <div class="text-2xl font-extrabold text-accent">{studies.length}</div>
+          <div class="mt-1 text-[10px] text-subtle">Case {studies.length === 1 ? 'Study' : 'Studies'}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case studies list -->
+    <section id="work" class="mb-16">
+      <div class="mb-4 text-[10px] uppercase tracking-widest text-subtle">Work</div>
+      <div class="flex flex-col gap-3">
+        {studies.map(config => (
+          <CaseStudyCard config={config} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Footer strip -->
+    <div class="flex items-center justify-between border-t border-border pt-6">
+      <span class="text-sm text-subtle">Based in Chester, UK · Open to opportunities</span>
+      <a href="/about" class="text-sm text-accent hover:underline">About me →</a>
+    </div>
+
+  </main>
 </Base>
