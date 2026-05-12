@@ -1,0 +1,124 @@
+---
+// src/pages/about.astro
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+---
+
+<Base
+  title="About — Jonathan Blakemore"
+  description="Jonathan Blakemore is an SEO Manager with 10 years of experience in technical SEO, content strategy, and performance reporting."
+>
+  <Header />
+
+  <main class="mx-auto max-w-3xl px-6 pb-20 pt-12">
+
+    <a href="/" class="mb-8 inline-block text-sm text-accent hover:underline">← Back</a>
+
+    <!-- Bio -->
+    <section class="mb-12">
+      <div class="mb-3 text-[10px] uppercase tracking-widest text-subtle">About</div>
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight text-heading">Jonathan Blakemore</h1>
+      <div class="mb-6 text-sm font-semibold uppercase tracking-widest text-accent">SEO Manager</div>
+      <div class="space-y-4 text-base leading-relaxed text-muted">
+        <p>
+          SEO Manager with 10 years of experience across technical SEO, content strategy, and
+          performance reporting. Currently directing the organic search strategy for CORSAIR, Elgato,
+          SCUF, and Fanatec at Corsair Components Limited.
+        </p>
+        <p>
+          Specialisms include post-migration recovery, international SEO (hreflang, multiregional
+          architecture), Core Web Vitals, and building reporting infrastructure in Looker Studio.
+          Comfortable working across large-scale e-commerce and SaaS environments.
+        </p>
+        <p>
+          Previously spent six years as a Technical SEO Executive at We Influence / Velstar, managing
+          SEO audits, keyword research, migrations, and client reporting across a diverse portfolio.
+          Earlier career covered the full digital marketing mix at Aqueous Digital.
+        </p>
+      </div>
+    </section>
+
+    <!-- CV download -->
+    <section class="mb-12">
+      <a
+        href="/assets/cv.pdf"
+        download
+        class="inline-flex items-center gap-2 rounded-lg border border-accent bg-surface px-5 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent hover:text-bg"
+      >
+        Download CV (PDF) ↓
+      </a>
+    </section>
+
+    <!-- Work history -->
+    <section class="mb-12">
+      <div class="mb-6 text-[10px] uppercase tracking-widest text-subtle">Work History</div>
+      <div class="space-y-8">
+
+        <div class="flex gap-5">
+          <div class="w-28 shrink-0 text-[11px] text-subtle">Aug 2023 – Present</div>
+          <div>
+            <div class="text-sm font-semibold text-heading">SEO Manager</div>
+            <div class="mb-2 text-sm text-muted">Corsair Components Limited</div>
+            <p class="text-sm leading-relaxed text-subtle">
+              Directing technical SEO strategy across CORSAIR, Elgato, SCUF, and Fanatec.
+              20 regions, 12 languages. Post-migration recovery, international SEO, blog growth,
+              Core Web Vitals, Looker Studio dashboards.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="w-28 shrink-0 text-[11px] text-subtle">Nov 2017 – Jul 2023</div>
+          <div>
+            <div class="text-sm font-semibold text-heading">Technical SEO Executive</div>
+            <div class="mb-2 text-sm text-muted">We Influence / Velstar</div>
+            <p class="text-sm leading-relaxed text-subtle">
+              Technical SEO for a portfolio of diverse clients. Audits, keyword research,
+              competitor analysis, CMS migrations, client reporting. Managed junior
+              executive workflow and training.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="w-28 shrink-0 text-[11px] text-subtle">Jun 2015 – Nov 2017</div>
+          <div>
+            <div class="text-sm font-semibold text-heading">Senior Digital Marketing Executive</div>
+            <div class="mb-2 text-sm text-muted">Aqueous Digital</div>
+            <p class="text-sm leading-relaxed text-subtle">
+              Full digital marketing mix — SEO, content, paid search (Google & Bing), CRO,
+              link building, and online reputation management.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="mb-12">
+      <div class="mb-6 text-[10px] uppercase tracking-widest text-subtle">Education</div>
+      <div class="space-y-4">
+        <div class="flex gap-5">
+          <div class="w-28 shrink-0 text-[11px] text-subtle">2011 – 2014</div>
+          <div>
+            <div class="text-sm font-semibold text-heading">University of Chester</div>
+            <div class="text-sm text-muted">Information Systems Management, 2:1</div>
+          </div>
+        </div>
+        <div class="flex gap-5">
+          <div class="w-28 shrink-0 text-[11px] text-subtle">2022</div>
+          <div>
+            <div class="text-sm font-semibold text-heading">Zero to Mastery</div>
+            <div class="text-sm text-muted">Complete Python Developer — Certificate of Completion</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="border-t border-border pt-6">
+      <a href="/" class="text-sm text-accent hover:underline">← View case studies</a>
+    </div>
+
+  </main>
+</Base>
