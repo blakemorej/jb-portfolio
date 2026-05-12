@@ -1,0 +1,87 @@
+---
+// src/pages/case-studies/[slug].astro
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import StatBadge from '../../components/StatBadge.astro';
+import ChartLoader from '../../components/ChartLoader.astro';
+import { getCaseStudySlugs, getCaseStudyConfig, getCaseStudyCSV } from '../../utils/getCaseStudies';
+import { parseAhrefsCSV } from '../../utils/parseAhrefsCSV';
+import { formatDateRange } from '../../utils/formatDate';
+
+export async function getStaticPaths() {
+  return getCaseStudySlugs().map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const config = getCaseStudyConfig(slug!);
+const data = parseAhrefsCSV(getCaseStudyCSV(slug!));
+const dateRange = formatDateRange(config.startDate, config.endDate);
+---
+
+<Base title={`${config.client} — ${config.headline} | Jonathan Blakemore`} description={config.intro}>
+  <Header />
+
+  <main class="mx-auto max-w-4xl px-6 pb-20 pt-12">
+
+    <!-- Breadcrumb -->
+    <a href="/#work" class="mb-8 inline-block text-sm text-accent hover:underline">
+      ← Back to all case studies
+    </a>
+
+    <!-- Hero -->
+    <div class="mb-12">
+      <div class="mb-3 text-[10px] uppercase tracking-widest text-subtle">
+        Case Study · {config.industry} · {dateRange}
+      </div>
+      <h1 class="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-heading">
+        {config.client}<br />
+        <span class="text-muted">{config.headline}</span>
+      </h1>
+      <p class="mb-8 max-w-2xl text-base leading-relaxed text-muted">
+        {config.intro}
+      </p>
+      <div class="flex flex-wrap gap-3">
+        {config.stats.map(stat => (
+          <StatBadge value={stat.value} label={stat.label} period={stat.period} />
+        ))}
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <section class="mb-12">
+      <div class="mb-4 border-b border-border pb-2 text-[10px] uppercase tracking-widest text-subtle">
+        Performance Data
+      </div>
+      <ChartLoader
+        data={data}
+        startDate={config.startDate}
+        migrationDate={config.migrationDate}
+      />
+    </section>
+
+    <!-- What I Did -->
+    <section class="mb-12">
+      <div class="mb-4 border-b border-border pb-2 text-[10px] uppercase tracking-widest text-subtle">
+        What I Did
+      </div>
+      <ul class="space-y-4">
+        {config.bullets.map(bullet => (
+          <li class="flex gap-3">
+            <span class="mt-1 shrink-0 text-sm text-accent">▸</span>
+            <span class="text-sm leading-relaxed text-muted">
+              <strong class="font-semibold text-heading">{bullet.lead}</strong>
+              {' — '}{bullet.body}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Page footer strip -->
+    <div class="flex items-center justify-between border-t border-border pt-6">
+      <span class="text-sm text-subtle">Jonathan Blakemore · SEO Manager</span>
+      <a href="/#work" class="text-sm text-accent hover:underline">← Back to all case studies</a>
+    </div>
+
+  </main>
+</Base>
