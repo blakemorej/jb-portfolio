@@ -1,0 +1,29 @@
+---
+// src/components/CaseStudyCard.astro
+import type { CaseStudyConfig } from '../utils/getCaseStudies';
+import { formatDateRange } from '../utils/formatDate';
+
+export interface Props {
+  config: CaseStudyConfig;
+}
+
+const { config } = Astro.props;
+const dateRange = formatDateRange(config.startDate, config.endDate);
+const headlineStat = config.stats[0];
+---
+
+<a
+  href={`/case-studies/${config.slug}`}
+  class="group flex items-center justify-between rounded-lg border border-border bg-surface px-5 py-4 transition-colors hover:border-accent"
+>
+  <div>
+    <div class="text-sm font-semibold text-heading">{config.client}</div>
+    <div class="mt-0.5 text-[11px] text-subtle">
+      {config.industry} · {dateRange}
+    </div>
+  </div>
+  <div class="flex items-center gap-3">
+    <div class="text-sm font-semibold text-accent">{headlineStat.value} {headlineStat.label}</div>
+    <div class="text-border transition-colors group-hover:text-accent">→</div>
+  </div>
+</a>
