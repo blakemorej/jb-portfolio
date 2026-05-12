@@ -22,5 +22,8 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# source assets (CSVs, CV originals — not for repo)
+assets/
+
 # jetbrains setting folder
 .idea/
