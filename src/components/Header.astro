@@ -1,5 +1,8 @@
 ---
 // src/components/Header.astro
+const { pathname } = Astro.url;
+const isAbout = pathname === '/about';
+const isHome = !isAbout;
 ---
 
 <header class="sticky top-0 z-10 border-b border-border bg-bg">
@@ -8,10 +11,10 @@
       JB
     </a>
     <nav class="flex items-center gap-6">
-      <a href="/#work" class="text-sm text-subtle transition-colors hover:text-muted">
+      <a href="/#work" class={`text-sm transition-colors hover:text-muted ${isHome ? 'text-heading' : 'text-subtle'}`}>
         Work
       </a>
-      <a href="/about" class="text-sm text-subtle transition-colors hover:text-muted">
+      <a href="/about" class={`text-sm transition-colors hover:text-muted ${isAbout ? 'text-heading' : 'text-subtle'}`}>
         About
       </a>
       <a
