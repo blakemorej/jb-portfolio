@@ -1,9 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
 ---
 <Base title="Test">
-  <div class="min-h-screen bg-bg text-heading p-8">
-    <h1 class="text-4xl font-bold text-accent">Colour test</h1>
-    <p class="text-muted">If this text is slate-400 coloured, tokens work.</p>
-  </div>
+  <Header />
+  <main class="p-8 text-heading">Hello world</main>
 </Base>

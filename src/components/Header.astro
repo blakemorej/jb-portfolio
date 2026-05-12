@@ -1,0 +1,27 @@
+---
+// src/components/Header.astro
+---
+
+<header class="sticky top-0 z-10 border-b border-border bg-bg">
+  <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
+    <a href="/" class="text-base font-extrabold tracking-tight text-accent">
+      JB
+    </a>
+    <nav class="flex items-center gap-6">
+      <a href="/#work" class="text-sm text-subtle transition-colors hover:text-muted">
+        Work
+      </a>
+      <a href="/about" class="text-sm text-subtle transition-colors hover:text-muted">
+        About
+      </a>
+      <a
+        href="https://www.linkedin.com/in/jonathan-blakemore"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-md border border-border bg-surface px-3 py-1.5 text-xs text-accent transition-colors hover:border-accent"
+      >
+        LinkedIn ↗
+      </a>
+    </nav>
+  </div>
+</header>
