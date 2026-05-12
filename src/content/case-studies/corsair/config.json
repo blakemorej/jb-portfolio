@@ -1,0 +1,40 @@
+{
+  "slug": "corsair",
+  "client": "CORSAIR",
+  "domain": "corsair.com",
+  "industry": "Consumer Electronics",
+  "role": "SEO Manager",
+  "startDate": "2023-08",
+  "endDate": null,
+  "migrationDate": "2023-05",
+  "headline": "SEO Recovery & Growth",
+  "intro": "Following a major site migration in May 2023, organic non-brand traffic had dropped significantly. Taking over as SEO Manager in August 2023, the mandate was to recover lost ground then grow — through technical SEO, international expansion across 20 regions and 12 languages, and a content strategy for the CORSAIR Explorer blog.",
+  "stats": [
+    { "value": "+851%", "label": "Non-Brand Traffic", "period": "Aug 2023 → May 2026" },
+    { "value": "+313%", "label": "Page 1 Keywords", "period": "Positions 4–10" },
+    { "value": "968k",  "label": "Non-Brand Visits/mo", "period": "May 2026" },
+    { "value": "20,394","label": "Referring Domains", "period": "+42% from baseline" }
+  ],
+  "bullets": [
+    {
+      "lead": "Post-migration recovery",
+      "body": "Diagnosed and resolved crawl and indexation issues caused by the May 2023 site migration, stabilising rankings within the first quarter."
+    },
+    {
+      "lead": "International SEO strategy",
+      "body": "Implemented technical and hreflang infrastructure across 20 regions and 12 languages for CORSAIR, Elgato, SCUF, and Fanatec."
+    },
+    {
+      "lead": "Content strategy & optimisation",
+      "body": "Grew the CORSAIR Explorer blog from 1.1k/mo to 510k/mo through content ideation, optimisation, and SEO training for the editorial team."
+    },
+    {
+      "lead": "Core Web Vitals",
+      "body": "Achieved \"Good\" rating on all desktop metrics and 2 of 3 mobile metrics."
+    },
+    {
+      "lead": "Reporting infrastructure",
+      "body": "Built custom Looker Studio dashboards for organic search reporting across all brands and regions."
+    }
+  ]
+}
