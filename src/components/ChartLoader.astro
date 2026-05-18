@@ -79,7 +79,15 @@ const chartPayload = JSON.stringify({ data, startIndex, migrationIndex, startLab
     </div>
 
   </div>
-  <div class="mt-2 text-[9px] text-border">Source: Ahrefs (public data)</div>
+  <div class="mt-4 rounded-lg border border-border bg-surface px-4 py-3 text-[11px] leading-relaxed text-subtle">
+    <span class="font-semibold text-muted">A note on data source.</span>
+    {' '}Ahrefs traffic estimates are widely known to undercount real performance — actual organic visits
+    consistently run higher than what Ahrefs reports. I've deliberately chosen to use Ahrefs data here
+    rather than sharing real analytics from a current employer or past client. Doing so without their
+    knowledge wouldn't sit right with me, and frankly, if you're a prospective employer or client, it
+    probably shouldn't sit right with you either. The trends shown are directionally accurate.
+    The real numbers are better.
+  </div>
 </div>
 
 <script>
