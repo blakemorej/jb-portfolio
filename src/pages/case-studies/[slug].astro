@@ -47,18 +47,6 @@ const dateRange = formatDateRange(config.startDate, config.endDate);
       </div>
     </div>
 
-    <!-- Charts -->
-    <section class="mb-12">
-      <div class="mb-4 border-b border-border pb-2 text-[10px] uppercase tracking-widest text-subtle">
-        Performance Data
-      </div>
-      <ChartLoader
-        data={data}
-        startDate={config.startDate}
-        migrationDate={config.migrationDate}
-      />
-    </section>
-
     <!-- What I Did -->
     <section class="mb-12">
       <div class="mb-4 border-b border-border pb-2 text-[10px] uppercase tracking-widest text-subtle">
@@ -75,6 +63,18 @@ const dateRange = formatDateRange(config.startDate, config.endDate);
           </li>
         ))}
       </ul>
+    </section>
+
+    <!-- Charts -->
+    <section class="mb-12">
+      <div class="mb-4 border-b border-border pb-2 text-[10px] uppercase tracking-widest text-subtle">
+        Performance Data
+      </div>
+      <ChartLoader
+        data={data}
+        startDate={config.startDate}
+        migrationDate={config.migrationDate}
+      />
     </section>
 
     <!-- Page footer strip -->
