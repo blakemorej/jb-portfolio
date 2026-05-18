@@ -22,23 +22,8 @@ const studies = slugs.map(slug => getCaseStudyConfig(slug));
       </h1>
       <p class="mb-8 max-w-xl text-base leading-relaxed text-muted">
         I grow organic search traffic through technical SEO, content strategy, and data-driven
-        optimisation. Here&apos;s the proof.
+        optimisation.
       </p>
-      <!-- Hardcoded headline stats — update when adding case studies -->
-      <div class="flex flex-wrap gap-3">
-        <div class="rounded-lg border border-border bg-surface px-5 py-4">
-          <div class="text-2xl font-extrabold text-accent">+851%</div>
-          <div class="mt-1 text-[10px] text-subtle">Non-Brand Traffic</div>
-        </div>
-        <div class="rounded-lg border border-border bg-surface px-5 py-4">
-          <div class="text-2xl font-extrabold text-accent">968k</div>
-          <div class="mt-1 text-[10px] text-subtle">Non-Brand Visits/mo</div>
-        </div>
-        <div class="rounded-lg border border-border bg-surface px-5 py-4">
-          <div class="text-2xl font-extrabold text-accent">{studies.length}</div>
-          <div class="mt-1 text-[10px] text-subtle">Case {studies.length === 1 ? 'Study' : 'Studies'}</div>
-        </div>
-      </div>
     </section>
 
     <!-- Case studies list -->
@@ -52,8 +37,7 @@ const studies = slugs.map(slug => getCaseStudyConfig(slug));
     </section>
 
     <!-- Footer strip -->
-    <div class="flex items-center justify-between border-t border-border pt-6">
-      <span class="text-sm text-subtle">Based in Chester, UK · Open to opportunities</span>
+    <div class="border-t border-border pt-6">
       <a href="/about" class="text-sm text-accent hover:underline">About me →</a>
     </div>
 
