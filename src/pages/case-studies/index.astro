@@ -1,0 +1,32 @@
+---
+// src/pages/case-studies/index.astro
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import { getCaseStudySlugs, getCaseStudyConfig } from '../../utils/getCaseStudies';
+
+const slugs = getCaseStudySlugs();
+const studies = slugs.map(slug => getCaseStudyConfig(slug));
+---
+
+<Base
+  title="Case Studies — Jonathan Blakemore"
+  description="SEO case studies by Jonathan Blakemore — organic growth results across e-commerce and SaaS."
+>
+  <Header />
+
+  <main class="mx-auto max-w-4xl px-6 pb-20 pt-12">
+
+    <a href="/" class="mb-8 inline-block text-sm text-accent hover:underline">← Back</a>
+
+    <div class="mb-3 text-[10px] uppercase tracking-widest text-subtle">Portfolio</div>
+    <h1 class="mb-10 text-4xl font-extrabold tracking-tight text-heading">Case Studies</h1>
+
+    <div class="flex flex-col gap-3">
+      {studies.map(config => (
+        <CaseStudyCard config={config} />
+      ))}
+    </div>
+
+  </main>
+</Base>

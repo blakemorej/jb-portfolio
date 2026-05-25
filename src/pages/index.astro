@@ -2,43 +2,175 @@
 // src/pages/index.astro
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
-import CaseStudyCard from '../components/CaseStudyCard.astro';
-import { getCaseStudySlugs, getCaseStudyConfig } from '../utils/getCaseStudies';
-
-const slugs = getCaseStudySlugs();
-const studies = slugs.map(slug => getCaseStudyConfig(slug));
 ---
 
-<Base title="Jonathan Blakemore — SEO Manager">
+<Base
+  title="Jonathan Blakemore — SEO Manager"
+  description="Jonathan Blakemore is an SEO Manager with 10 years of experience in technical SEO, content strategy, and performance reporting."
+>
   <Header />
 
-  <main class="mx-auto max-w-5xl px-6 pb-20 pt-16">
+  <main class="mx-auto max-w-4xl px-6 pb-20 pt-12">
 
-    <!-- Hero -->
-    <section class="mb-16 border-b border-border pb-14">
-      <div class="mb-3 text-[10px] uppercase tracking-widest text-accent">SEO Manager</div>
-      <h1 class="mb-4 text-5xl font-extrabold leading-tight tracking-tight text-heading">
-        Jonathan Blakemore
-      </h1>
-      <p class="mb-8 max-w-xl text-base leading-relaxed text-muted">
-        I grow organic search traffic through technical SEO, content strategy, and data-driven
-        optimisation.
-      </p>
-    </section>
-
-    <!-- Case studies list -->
-    <section id="work" class="mb-16">
-      <div class="mb-4 text-[10px] uppercase tracking-widest text-subtle">Work</div>
-      <div class="flex flex-col gap-3">
-        {studies.map(config => (
-          <CaseStudyCard config={config} />
-        ))}
+    <!-- Bio -->
+    <section class="mb-12">
+      <div class="flex items-start justify-between gap-8">
+        <div class="flex-1">
+          <div class="mb-3 text-[10px] uppercase tracking-widest text-subtle">SEO Manager</div>
+          <h1 class="mb-4 text-4xl font-extrabold tracking-tight text-heading">Jonathan Blakemore</h1>
+          <div class="mb-6 text-sm font-semibold uppercase tracking-widest text-accent">10 Years Experience</div>
+        </div>
+        <img
+          src="/images/jonathan-blakemore-on-ice-square.jpg"
+          alt="Jonathan Blakemore"
+          class="h-48 w-48 shrink-0 rounded-full border-2 border-border object-cover"
+        />
+      </div>
+      <div class="space-y-4 text-base leading-relaxed text-muted">
+        <p>
+          SEO Manager with 10 years of experience across technical SEO, content strategy, and
+          performance reporting. Currently directing the organic search strategy for CORSAIR, Elgato,
+          SCUF, and Fanatec at Corsair Components Limited.
+        </p>
+        <p>
+          Specialisms include post-migration recovery, international SEO (hreflang, multiregional
+          architecture), Core Web Vitals, and building reporting infrastructure in Looker Studio.
+          Comfortable working across large-scale e-commerce and SaaS environments.
+        </p>
+        <p>
+          Previously spent six years as a Technical SEO Executive at We Influence / Velstar, managing
+          SEO audits, keyword research, migrations, and client reporting across a diverse portfolio.
+          Earlier career covered the full digital marketing mix at Aqueous Digital.
+        </p>
       </div>
     </section>
 
-    <!-- Footer strip -->
-    <div class="border-t border-border pt-6">
-      <a href="/about" class="text-sm text-accent hover:underline">About me →</a>
+    <!-- Services -->
+    <section class="mb-12">
+      <div class="mb-6 text-[10px] uppercase tracking-widest text-subtle">What I Do</div>
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+
+        <div class="rounded-lg border border-border bg-surface px-5 py-4">
+          <div class="mb-1.5 text-sm font-semibold text-heading">Technical SEO</div>
+          <p class="text-sm leading-relaxed text-subtle">
+            Site architecture, crawl optimisation, indexation, structured data, and large-scale
+            technical audits across e-commerce and SaaS platforms.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-border bg-surface px-5 py-4">
+          <div class="mb-1.5 text-sm font-semibold text-heading">GEO / AEO</div>
+          <p class="text-sm leading-relaxed text-subtle">
+            Optimising content and site structure for AI-powered search, answer engines, and
+            large language model visibility.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-border bg-surface px-5 py-4">
+          <div class="mb-1.5 text-sm font-semibold text-heading">Content Marketing</div>
+          <p class="text-sm leading-relaxed text-subtle">
+            Keyword research, content strategy, topical authority, and editorial SEO training
+            to build compounding organic traffic over time.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-border bg-surface px-5 py-4">
+          <div class="mb-1.5 text-sm font-semibold text-heading">Site Speed & Core Web Vitals</div>
+          <p class="text-sm leading-relaxed text-subtle">
+            Diagnosing and resolving LCP, INP, and CLS issues to achieve Good ratings across
+            desktop and mobile — across Shopify, Magento, and custom stacks.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-border bg-surface px-5 py-4">
+          <div class="mb-1.5 text-sm font-semibold text-heading">International SEO</div>
+          <p class="text-sm leading-relaxed text-subtle">
+            Hreflang implementation, multiregional site architecture, and international
+            content strategy across 20+ regions and 12 languages.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-border bg-surface px-5 py-4">
+          <div class="mb-1.5 text-sm font-semibold text-heading">Analytics & Reporting</div>
+          <p class="text-sm leading-relaxed text-subtle">
+            GA4, Google Search Console, and Ahrefs reporting built into Looker Studio dashboards
+            stakeholders can self-serve without pulling me in monthly.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Work History -->
+    <section class="mb-12">
+      <div class="mb-6 text-[10px] uppercase tracking-widest text-subtle">Work History</div>
+      <div class="space-y-8">
+
+        <div class="flex gap-5">
+          <div class="w-28 shrink-0 text-[11px] text-subtle">Aug 2023 – Present</div>
+          <div>
+            <div class="text-sm font-semibold text-heading">SEO Manager</div>
+            <div class="mb-2 text-sm text-muted">Corsair Components Limited</div>
+            <p class="text-sm leading-relaxed text-subtle">
+              Directing technical SEO strategy across CORSAIR, Elgato, SCUF, and Fanatec.
+              20 regions, 12 languages. Post-migration recovery, international SEO, blog growth,
+              Core Web Vitals, Looker Studio dashboards.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="w-28 shrink-0 text-[11px] text-subtle">Nov 2017 – Jul 2023</div>
+          <div>
+            <div class="text-sm font-semibold text-heading">Technical SEO Executive</div>
+            <div class="mb-2 text-sm text-muted">We Influence / Velstar</div>
+            <p class="text-sm leading-relaxed text-subtle">
+              Technical SEO for a portfolio of diverse clients. Audits, keyword research,
+              competitor analysis, CMS migrations, client reporting. Managed junior
+              executive workflow and training.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="w-28 shrink-0 text-[11px] text-subtle">Jun 2015 – Nov 2017</div>
+          <div>
+            <div class="text-sm font-semibold text-heading">Senior Digital Marketing Executive</div>
+            <div class="mb-2 text-sm text-muted">Aqueous Digital</div>
+            <p class="text-sm leading-relaxed text-subtle">
+              Full digital marketing mix — SEO, content, paid search (Google & Bing), CRO,
+              link building, and online reputation management.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="mb-12">
+      <div class="mb-6 text-[10px] uppercase tracking-widest text-subtle">Education</div>
+      <div class="space-y-4">
+        <div class="flex gap-5">
+          <div class="w-28 shrink-0 text-[11px] text-subtle">2011 – 2014</div>
+          <div>
+            <div class="text-sm font-semibold text-heading">University of Chester</div>
+            <div class="text-sm text-muted">Information Systems Management, 2:1</div>
+          </div>
+        </div>
+        <div class="flex gap-5">
+          <div class="w-28 shrink-0 text-[11px] text-subtle">2022</div>
+          <div>
+            <div class="text-sm font-semibold text-heading">Zero to Mastery</div>
+            <div class="text-sm text-muted">Complete Python Developer — Certificate of Completion</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="border-t border-border pt-6 flex gap-6">
+      <a href="/case-studies" class="text-sm text-accent hover:underline">View case studies →</a>
+      <a href="/tools" class="text-sm text-accent hover:underline">View tools →</a>
     </div>
 
   </main>
