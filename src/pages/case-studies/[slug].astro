@@ -40,30 +40,12 @@ const dateRange = formatDateRange(config.startDate, config.endDate);
       <p class="mb-8 max-w-2xl text-base leading-relaxed text-muted">
         {config.intro}
       </p>
-      <div class="flex flex-wrap gap-3">
+      <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {config.stats.map(stat => (
           <StatBadge value={stat.value} label={stat.label} period={stat.period} />
         ))}
       </div>
     </div>
-
-    <!-- What I Did -->
-    <section class="mb-12">
-      <div class="mb-4 border-b border-border pb-2 text-[10px] uppercase tracking-widest text-subtle">
-        What I Did
-      </div>
-      <ul class="space-y-4">
-        {config.bullets.map(bullet => (
-          <li class="flex gap-3">
-            <span class="mt-1 shrink-0 text-sm text-accent">▸</span>
-            <span class="text-sm leading-relaxed text-muted">
-              <strong class="font-semibold text-heading">{bullet.lead}</strong>
-              {' — '}{bullet.body}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </section>
 
     <!-- Charts -->
     <section class="mb-12">
@@ -75,6 +57,29 @@ const dateRange = formatDateRange(config.startDate, config.endDate);
         startDate={config.startDate}
         migrationDate={config.migrationDate}
       />
+    </section>
+
+    <!-- What I Did -->
+    <section class="mb-12">
+      <div class="mb-8">
+        <h2 class="inline text-3xl font-extrabold tracking-tight text-heading">What I Did</h2>
+        <span class="ml-3 text-base italic text-accent">— {config.bullets.length} things, in order of when they mattered.</span>
+      </div>
+      <div>
+        {config.bullets.map((bullet, i) => (
+          <div class="border-t border-border py-6">
+            <div class="flex gap-6">
+              <div class="w-12 shrink-0 text-2xl font-extrabold leading-none text-accent">
+                {String(i + 1).padStart(2, '0')}
+              </div>
+              <div>
+                <div class="mb-2 text-base font-bold text-heading">{bullet.lead}</div>
+                <p class="text-sm leading-relaxed text-muted">{bullet.body}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
 
     <!-- Page footer strip -->
