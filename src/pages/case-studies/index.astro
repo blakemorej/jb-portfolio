@@ -5,7 +5,7 @@ import Header from '../../components/Header.astro';
 import CaseStudyCard from '../../components/CaseStudyCard.astro';
 import { getCaseStudySlugs, getCaseStudyConfig } from '../../utils/getCaseStudies';
 
-const slugs = getCaseStudySlugs();
+const slugs   = getCaseStudySlugs();
 const studies = slugs.map(slug => getCaseStudyConfig(slug));
 ---
 
@@ -15,16 +15,35 @@ const studies = slugs.map(slug => getCaseStudyConfig(slug));
 >
   <Header />
 
-  <main class="mx-auto max-w-4xl px-6 pb-20 pt-12">
+  <main class="flex-1 mx-auto w-full max-w-7xl px-10 max-md:px-5 py-12">
 
-    <a href="/" class="mb-8 inline-block text-sm text-accent hover:underline">← Back</a>
+    <!-- Breadcrumb -->
+    <div class="label-mono mb-6 text-dim">
+      <a href="/" class="transition-colors hover:text-accent">Home</a>
+      <span class="mx-2">/</span>
+      <span class="text-hi">Case Studies</span>
+    </div>
 
-    <div class="mb-3 text-[10px] uppercase tracking-widest text-subtle">Portfolio</div>
-    <h1 class="mb-10 text-4xl font-extrabold tracking-tight text-heading">Case Studies</h1>
+    <h1 class="mb-4 text-[clamp(36px,5vw,64px)] font-bold leading-tight tracking-tight text-hi">
+      Case Studies<span class="text-accent">.</span>
+    </h1>
+    <p class="mb-12 max-w-xl text-base leading-relaxed text-txt">
+      Selected SEO programmes — organic recovery, international expansion, and long-run
+      compounding growth. Each entry includes live Ahrefs performance data.
+    </p>
 
-    <div class="flex flex-col gap-3">
-      {studies.map(config => (
-        <CaseStudyCard config={config} />
+    <!-- Table header -->
+    <div class="flex items-center gap-6 border-b border-line px-6 pb-3">
+      <div class="w-8 shrink-0 label-mono text-dim">IDX</div>
+      <div class="flex-1 label-mono text-dim">Client / Engagement</div>
+      <div class="shrink-0 label-mono text-dim">Headline Result</div>
+      <div class="w-6 shrink-0"></div>
+    </div>
+
+    <!-- Rows -->
+    <div>
+      {studies.map((config, i) => (
+        <CaseStudyCard config={config} index={i + 1} />
       ))}
     </div>
 

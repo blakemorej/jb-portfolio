@@ -1,0 +1,35 @@
+---
+// src/components/Footer.astro
+---
+
+<footer class="border-t border-line mt-auto">
+  <div class="mx-auto max-w-7xl px-10 max-md:px-5">
+
+    <!-- CTA row -->
+    <div class="flex items-center justify-between gap-8 py-14 max-sm:flex-col max-sm:items-start max-sm:gap-6">
+      <p class="text-[clamp(28px,4vw,52px)] font-bold leading-tight tracking-tight text-hi">
+        Start a conversation<span class="text-accent">.</span>
+      </p>
+      <a
+        href="/contact"
+        class="label-mono shrink-0 border border-accent px-5 py-3 text-accent transition-colors hover:bg-accent hover:text-on-accent"
+      >
+        → Contact Me
+      </a>
+    </div>
+
+    <!-- Bottom strip -->
+    <div class="flex items-center justify-between border-t border-line py-5">
+      <span class="label-mono text-dim">© 2026 Jonathan Blakemore</span>
+      <a
+        href="https://www.linkedin.com/in/jonathan-blakemore-70436a74/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="label-mono text-dim transition-colors hover:text-accent"
+      >
+        LinkedIn ↗
+      </a>
+    </div>
+
+  </div>
+</footer>

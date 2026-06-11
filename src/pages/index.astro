@@ -10,156 +10,176 @@ import Header from '../components/Header.astro';
 >
   <Header />
 
-  <main class="mx-auto max-w-4xl px-6 pb-20 pt-12">
+  <main class="flex-1">
 
     <!-- Hero -->
-    <section class="mb-14 border-b border-border pb-14">
-      <div class="flex items-end justify-between gap-8">
-        <div class="flex-1">
-          <div class="mb-3 text-[10px] uppercase tracking-widest text-subtle">SEO Manager · Chester, UK</div>
-          <h1 class="mb-4 text-5xl font-extrabold leading-tight tracking-tight text-heading">
-            Jonathan<br />Blakemore
+    <section class="mx-auto max-w-7xl px-10 max-md:px-5 py-20 md:py-28">
+      <div class="flex items-end justify-between gap-12 max-md:flex-col max-md:items-start">
+
+        <!-- Text -->
+        <div class="flex-1 min-w-0">
+          <div class="label-mono mb-6 text-dim">SEO &amp; GEO Specialist — Chester, UK</div>
+          <h1 class="mb-6 font-bold leading-[0.96] tracking-[-0.02em] text-hi"
+              style="font-size: clamp(46px, 6vw, 76px);">
+            Jonathan<br />Blakemore<span class="text-accent cursor-blink">_</span>
           </h1>
-          <p class="max-w-sm text-base leading-relaxed text-muted">
-            I grow organic traffic through technical SEO, content strategy, and data-driven reporting.
-            10 years in search — currently at Corsair Components directing organic across four global brands.
+          <p class="mb-10 max-w-[520px] text-base leading-relaxed text-txt">
+            I grow organic traffic through technical SEO, content strategy, and
+            data-driven reporting. 10 years in search — currently at Corsair
+            Components directing organic across four global brands.
           </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="/case-studies"
+               class="label-mono bg-accent px-5 py-3 text-on-accent transition-colors hover:bg-accent-hover">
+              View Case Studies →
+            </a>
+            <a href="/contact"
+               class="label-mono border border-line px-5 py-3 text-dim transition-colors hover:border-accent hover:text-accent">
+              Get in Touch
+            </a>
+          </div>
         </div>
-        <img
-          src="/images/jonathan-blakemore-on-ice-square.png"
-          alt="Jonathan Blakemore"
-          class="h-64 w-64 shrink-0 object-contain"
-        />
+
+        <!-- Portrait -->
+        <div class="relative shrink-0 w-72 md:w-96 max-md:self-center">
+          <img
+            src="/images/jonathan-blakemore-on-ice-square.png"
+            alt="Jonathan Blakemore"
+            class="portrait-img w-full h-auto"
+          />
+          <div class="portrait-tint"></div>
+          <!-- Crop marks -->
+          <span class="pointer-events-none absolute left-2 top-2 h-5 w-5 border-l border-t border-accent"></span>
+          <span class="pointer-events-none absolute right-2 top-2 h-5 w-5 border-r border-t border-accent"></span>
+          <span class="pointer-events-none absolute bottom-2 left-2 h-5 w-5 border-b border-l border-accent"></span>
+          <span class="pointer-events-none absolute bottom-2 right-2 h-5 w-5 border-b border-r border-accent"></span>
+        </div>
+
       </div>
     </section>
 
-    <!-- Services -->
-    <section class="mb-12">
-      <div class="mb-6 text-[10px] uppercase tracking-widest text-subtle">What I Do</div>
-      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+    <!-- What I Do -->
+    <section class="border-t border-line">
+      <div class="mx-auto max-w-7xl px-10 max-md:px-5 py-16">
 
-        <div class="rounded-lg border border-border bg-surface px-5 py-4">
-          <div class="mb-1.5 text-sm font-semibold text-heading">Technical SEO</div>
-          <p class="text-sm leading-relaxed text-subtle">
-            Site architecture, crawl optimisation, indexation, structured data, and large-scale
-            technical audits across e-commerce and SaaS platforms.
-          </p>
+        <!-- Section header -->
+        <div class="mb-8 flex items-center gap-4">
+          <span class="font-mono text-xs text-accent">[01]</span>
+          <span class="label-mono text-dim">What I Do</span>
+          <span class="flex-1 border-t border-line"></span>
+          <span class="label-mono text-dim">06 Services</span>
         </div>
 
-        <div class="rounded-lg border border-border bg-surface px-5 py-4">
-          <div class="mb-1.5 text-sm font-semibold text-heading">GEO / AEO</div>
-          <p class="text-sm leading-relaxed text-subtle">
-            Optimising content and site structure for AI-powered search, answer engines, and
-            large language model visibility.
-          </p>
-        </div>
+        <!-- 3-col capability grid — gap-px on bg-line creates hairline separators -->
+        <div class="grid grid-cols-1 gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="rounded-lg border border-border bg-surface px-5 py-4">
-          <div class="mb-1.5 text-sm font-semibold text-heading">Content Marketing</div>
-          <p class="text-sm leading-relaxed text-subtle">
-            Keyword research, content strategy, topical authority, and editorial SEO training
-            to build compounding organic traffic over time.
-          </p>
-        </div>
+          <div class="bg-surface border-t-2 border-accent p-6">
+            <div class="mb-3 text-lg font-semibold text-hi">Technical SEO</div>
+            <p class="text-sm leading-relaxed text-txt">
+              Site architecture, crawl optimisation, indexation, structured data,
+              and large-scale technical audits across e-commerce and SaaS platforms.
+            </p>
+          </div>
 
-        <div class="rounded-lg border border-border bg-surface px-5 py-4">
-          <div class="mb-1.5 text-sm font-semibold text-heading">Site Speed & Core Web Vitals</div>
-          <p class="text-sm leading-relaxed text-subtle">
-            Diagnosing and resolving LCP, INP, and CLS issues to achieve Good ratings across
-            desktop and mobile — across Shopify, Magento, and custom stacks.
-          </p>
-        </div>
+          <div class="bg-surface border-t-2 border-accent p-6">
+            <div class="mb-3 text-lg font-semibold text-hi">GEO / AEO</div>
+            <p class="text-sm leading-relaxed text-txt">
+              Optimising content and site structure for AI-powered search, answer
+              engines, and large language model visibility.
+            </p>
+          </div>
 
-        <div class="rounded-lg border border-border bg-surface px-5 py-4">
-          <div class="mb-1.5 text-sm font-semibold text-heading">International SEO</div>
-          <p class="text-sm leading-relaxed text-subtle">
-            Hreflang implementation, multiregional site architecture, and international
-            content strategy across 20+ regions and 12 languages.
-          </p>
-        </div>
+          <div class="bg-surface border-t-2 border-accent p-6">
+            <div class="mb-3 text-lg font-semibold text-hi">Content Marketing</div>
+            <p class="text-sm leading-relaxed text-txt">
+              Keyword research, content strategy, topical authority, and editorial
+              SEO training to build compounding organic traffic over time.
+            </p>
+          </div>
 
-        <div class="rounded-lg border border-border bg-surface px-5 py-4">
-          <div class="mb-1.5 text-sm font-semibold text-heading">Analytics & Reporting</div>
-          <p class="text-sm leading-relaxed text-subtle">
-            GA4, Google Search Console, and Ahrefs reporting built into Looker Studio dashboards
-            stakeholders can self-serve without pulling me in monthly.
-          </p>
-        </div>
+          <div class="bg-surface border-t-2 border-accent p-6">
+            <div class="mb-3 text-lg font-semibold text-hi">Site Speed &amp; Core Web Vitals</div>
+            <p class="text-sm leading-relaxed text-txt">
+              Diagnosing and resolving LCP, INP, and CLS issues to achieve Good
+              ratings across desktop and mobile — across Shopify, Magento, and custom stacks.
+            </p>
+          </div>
 
+          <div class="bg-surface border-t-2 border-accent p-6">
+            <div class="mb-3 text-lg font-semibold text-hi">International SEO</div>
+            <p class="text-sm leading-relaxed text-txt">
+              Hreflang implementation, multiregional site architecture, and
+              international content strategy across 20+ regions and 12 languages.
+            </p>
+          </div>
+
+          <div class="bg-surface border-t-2 border-accent p-6">
+            <div class="mb-3 text-lg font-semibold text-hi">Analytics &amp; Reporting</div>
+            <p class="text-sm leading-relaxed text-txt">
+              GA4, Google Search Console, and Ahrefs reporting built into Looker
+              Studio dashboards stakeholders can self-serve without pulling me in monthly.
+            </p>
+          </div>
+
+        </div>
       </div>
     </section>
 
     <!-- Work History -->
-    <section class="mb-12">
-      <div class="mb-6 text-[10px] uppercase tracking-widest text-subtle">Work History</div>
-      <div class="space-y-8">
+    <section class="border-t border-line">
+      <div class="mx-auto max-w-7xl px-10 max-md:px-5 py-16">
 
-        <div class="flex gap-5">
-          <div class="w-28 shrink-0 text-[11px] text-subtle">Aug 2023 – Present</div>
-          <div>
-            <div class="text-sm font-semibold text-heading">SEO Manager</div>
-            <div class="mb-2 text-sm text-muted">Corsair Components Limited</div>
-            <p class="text-sm leading-relaxed text-subtle">
-              Directing technical SEO strategy across CORSAIR, Elgato, SCUF, and Fanatec.
-              20 regions, 12 languages. Post-migration recovery, international SEO, blog growth,
-              Core Web Vitals, Looker Studio dashboards.
-            </p>
-          </div>
+        <!-- Section header -->
+        <div class="mb-8 flex items-center gap-4">
+          <span class="font-mono text-xs text-accent">[02]</span>
+          <span class="label-mono text-dim">Work History</span>
+          <span class="flex-1 border-t border-line"></span>
+          <span class="label-mono text-dim">2015 → Present</span>
         </div>
 
-        <div class="flex gap-5">
-          <div class="w-28 shrink-0 text-[11px] text-subtle">Nov 2017 – Jul 2023</div>
-          <div>
-            <div class="text-sm font-semibold text-heading">Technical SEO Executive</div>
-            <div class="mb-2 text-sm text-muted">We Influence / Velstar</div>
-            <p class="text-sm leading-relaxed text-subtle">
-              Technical SEO for a portfolio of diverse clients. Audits, keyword research,
-              competitor analysis, CMS migrations, client reporting. Managed junior
-              executive workflow and training.
-            </p>
-          </div>
-        </div>
+        <div class="flex flex-col gap-px bg-line">
 
-        <div class="flex gap-5">
-          <div class="w-28 shrink-0 text-[11px] text-subtle">Jun 2015 – Nov 2017</div>
-          <div>
-            <div class="text-sm font-semibold text-heading">Senior Digital Marketing Executive</div>
-            <div class="mb-2 text-sm text-muted">Aqueous Digital</div>
-            <p class="text-sm leading-relaxed text-subtle">
-              Full digital marketing mix — SEO, content, paid search (Google & Bing), CRO,
-              link building, and online reputation management.
-            </p>
+          <div class="flex gap-8 bg-surface p-6 max-sm:flex-col max-sm:gap-2">
+            <div class="w-40 shrink-0 font-mono text-xs text-accent max-sm:w-auto">Aug 2023 – Present</div>
+            <div>
+              <div class="text-xl font-bold text-hi">SEO Manager</div>
+              <div class="label-mono mt-1 mb-3 text-dim">Corsair Components Limited</div>
+              <p class="text-sm leading-relaxed text-txt">
+                Directing technical SEO strategy across CORSAIR, Elgato, SCUF, and Fanatec.
+                20 regions, 12 languages. Post-migration recovery, international SEO, blog growth,
+                Core Web Vitals, Looker Studio dashboards.
+              </p>
+            </div>
           </div>
-        </div>
 
-      </div>
-    </section>
+          <div class="flex gap-8 bg-surface p-6 max-sm:flex-col max-sm:gap-2">
+            <div class="w-40 shrink-0 font-mono text-xs text-accent max-sm:w-auto">Nov 2017 – Jul 2023</div>
+            <div>
+              <div class="text-xl font-bold text-hi">Technical SEO Executive</div>
+              <div class="label-mono mt-1 mb-3 text-dim">We Influence / Velstar</div>
+              <p class="text-sm leading-relaxed text-txt">
+                Technical SEO for a portfolio of diverse clients. Audits, keyword research,
+                competitor analysis, CMS migrations, client reporting. Managed junior
+                executive workflow and training.
+              </p>
+            </div>
+          </div>
 
-    <!-- Education -->
-    <section class="mb-12">
-      <div class="mb-6 text-[10px] uppercase tracking-widest text-subtle">Education</div>
-      <div class="space-y-4">
-        <div class="flex gap-5">
-          <div class="w-28 shrink-0 text-[11px] text-subtle">2011 – 2014</div>
-          <div>
-            <div class="text-sm font-semibold text-heading">University of Chester</div>
-            <div class="text-sm text-muted">Information Systems Management, 2:1</div>
+          <div class="flex gap-8 bg-surface p-6 max-sm:flex-col max-sm:gap-2">
+            <div class="w-40 shrink-0 font-mono text-xs text-accent max-sm:w-auto">Jun 2015 – Nov 2017</div>
+            <div>
+              <div class="text-xl font-bold text-hi">Senior Digital Marketing Executive</div>
+              <div class="label-mono mt-1 mb-3 text-dim">Aqueous Digital</div>
+              <p class="text-sm leading-relaxed text-txt">
+                Full digital marketing mix — SEO, content, paid search (Google &amp; Bing), CRO,
+                link building, and online reputation management.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="flex gap-5">
-          <div class="w-28 shrink-0 text-[11px] text-subtle">2022</div>
-          <div>
-            <div class="text-sm font-semibold text-heading">Zero to Mastery</div>
-            <div class="text-sm text-muted">Complete Python Developer — Certificate of Completion</div>
-          </div>
+
         </div>
       </div>
     </section>
-
-    <div class="border-t border-border pt-6 flex gap-6">
-      <a href="/case-studies" class="text-sm text-accent hover:underline">View case studies →</a>
-      <a href="/tools" class="text-sm text-accent hover:underline">View tools →</a>
-    </div>
 
   </main>
 </Base>

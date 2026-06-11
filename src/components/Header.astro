@@ -1,25 +1,78 @@
 ---
 // src/components/Header.astro
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string) {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+
+const navLinks = [
+  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/tools',        label: 'Tools' },
+  { href: '/contact',      label: 'Contact' },
+];
 ---
 
-<header class="sticky top-0 z-10 border-b border-border bg-bg">
-  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-    <a href="/" class="text-base font-extrabold tracking-tight text-accent">
-      JB
-    </a>
-    <nav class="flex items-center gap-6">
-      <a href="/case-studies" class="text-sm text-subtle transition-colors hover:text-muted">
-        Case Studies
-      </a>
-      <a href="/tools" class="text-sm text-subtle transition-colors hover:text-muted">
-        Tools
-      </a>
-      <a
-        href="/contact"
-        class="rounded-md border border-border bg-surface px-3 py-1.5 text-xs text-accent transition-colors hover:border-accent"
-      >
-        Contact
-      </a>
+<header class="sticky top-0 z-50 border-b border-line bg-bg/90 backdrop-blur-sm">
+  <div class="mx-auto max-w-7xl px-10 max-md:px-5 flex h-14 items-center justify-between">
+
+    <!-- Wordmark -->
+    <a href="/" class="font-mono text-sm font-semibold text-accent tracking-tight">JB</a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-2 md:flex" aria-label="Primary">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class={[
+            'label-mono border px-3.5 py-1.5 transition-colors',
+            isActive(href)
+              ? 'border-accent text-accent'
+              : 'border-line text-dim hover:border-accent hover:text-accent',
+          ].join(' ')}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="label-mono border border-line px-3 py-1.5 text-dim transition-colors hover:border-accent hover:text-accent md:hidden"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+    >
+      Menu
+    </button>
+
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div id="mobile-menu" class="hidden border-t border-line bg-bg md:hidden">
+    <nav class="mx-auto max-w-7xl flex flex-col gap-1 px-5 py-4">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class={[
+            'label-mono border-b border-line py-3 transition-colors',
+            isActive(href) ? 'text-accent' : 'text-dim hover:text-accent',
+          ].join(' ')}
+        >
+          {label}
+        </a>
+      ))}
     </nav>
   </div>
 </header>
+
+<script>
+  const btn  = document.getElementById('mobile-menu-btn')!;
+  const menu = document.getElementById('mobile-menu')!;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.textContent = open ? 'Close' : 'Menu';
+  });
+</script>

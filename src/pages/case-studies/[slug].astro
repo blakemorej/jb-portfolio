@@ -6,7 +6,6 @@ import StatBadge from '../../components/StatBadge.astro';
 import ChartLoader from '../../components/ChartLoader.astro';
 import { getCaseStudySlugs, getCaseStudyConfig, getCaseStudyCSV } from '../../utils/getCaseStudies';
 import { parseAhrefsCSV } from '../../utils/parseAhrefsCSV';
-import { formatDateRange } from '../../utils/formatDate';
 
 export async function getStaticPaths() {
   return getCaseStudySlugs().map(slug => ({ params: { slug } }));
@@ -14,43 +13,50 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const config = getCaseStudyConfig(slug!);
-const data = parseAhrefsCSV(getCaseStudyCSV(slug!));
-const dateRange = formatDateRange(config.startDate, config.endDate);
+const data   = parseAhrefsCSV(getCaseStudyCSV(slug!));
 ---
 
 <Base title={`${config.client} — ${config.headline} | Jonathan Blakemore`} description={config.intro}>
   <Header />
 
-  <main class="mx-auto max-w-5xl px-6 pb-20 pt-12">
+  <main class="flex-1 mx-auto w-full max-w-7xl px-10 max-md:px-5 py-12">
 
-    <!-- Breadcrumb -->
-    <a href="/case-studies" class="mb-8 inline-block text-sm text-accent hover:underline">
-      ← Back to all case studies
-    </a>
-
-    <!-- Hero -->
-    <div class="mb-12">
-      <div class="mb-3 text-[10px] uppercase tracking-widest text-subtle">
-        Case Study · {config.industry} · {dateRange}
-      </div>
-      <h1 class="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-heading">
-        {config.client}<br />
-        <span class="text-muted">{config.headline}</span>
-      </h1>
-      <p class="mb-8 max-w-2xl text-base leading-relaxed text-muted">
-        {config.intro}
-      </p>
-      <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {config.stats.map(stat => (
-          <StatBadge value={stat.value} label={stat.label} period={stat.period} />
-        ))}
-      </div>
+    <!-- Back + breadcrumb -->
+    <div class="label-mono mb-4 text-dim">
+      <a href="/case-studies" class="transition-colors hover:text-accent">← Back</a>
+    </div>
+    <div class="label-mono mb-8 flex items-center gap-2 text-dim">
+      <a href="/" class="transition-colors hover:text-accent">Home</a>
+      <span>/</span>
+      <a href="/case-studies" class="transition-colors hover:text-accent">Case Studies</a>
+      <span>/</span>
+      <span class="text-hi">{config.client}</span>
     </div>
 
-    <!-- Charts -->
-    <section class="mb-12">
-      <div class="mb-4 border-b border-border pb-2 text-[10px] uppercase tracking-widest text-subtle">
-        Performance Data
+    <!-- Hero -->
+    <h1 class="mb-6 text-[clamp(40px,6vw,80px)] font-bold uppercase leading-none tracking-tight text-hi">
+      {config.client}<span class="text-accent">.</span>
+    </h1>
+    <p class="mb-12 max-w-2xl text-base leading-relaxed text-txt">
+      {config.intro}
+    </p>
+
+    <!-- Stat grid -->
+    <div class="mb-16 grid grid-cols-2 gap-px bg-line lg:grid-cols-4">
+      {config.stats.map(stat => (
+        <div class="bg-surface px-6">
+          <StatBadge value={stat.value} label={stat.label} />
+        </div>
+      ))}
+    </div>
+
+    <!-- Performance Data -->
+    <section class="mb-16">
+      <div class="mb-6 flex items-center gap-4 border-b border-line pb-4">
+        <span class="font-mono text-xs text-accent">[01]</span>
+        <span class="label-mono text-dim">Performance Data</span>
+        <span class="flex-1 border-t border-line"></span>
+        <span class="label-mono text-dim">Source · Ahrefs</span>
       </div>
       <ChartLoader
         data={data}
@@ -60,32 +66,33 @@ const dateRange = formatDateRange(config.startDate, config.endDate);
     </section>
 
     <!-- What I Did -->
-    <section class="mb-12">
-      <div class="mb-8">
-        <h2 class="inline text-3xl font-extrabold tracking-tight text-heading">What I Did</h2>
-        <span class="ml-3 text-base italic text-accent">— {config.bullets.length} things, in order of when they mattered.</span>
+    <section class="mb-16">
+      <div class="mb-6 flex items-center gap-4 border-b border-line pb-4">
+        <span class="font-mono text-xs text-accent">[02]</span>
+        <span class="label-mono text-dim">What I Did</span>
+        <span class="flex-1 border-t border-line"></span>
       </div>
-      <div>
+      <div class="flex flex-col gap-px bg-line">
         {config.bullets.map((bullet, i) => (
-          <div class="border-t border-border py-6">
-            <div class="flex gap-6">
-              <div class="w-12 shrink-0 text-2xl font-extrabold leading-none text-accent">
-                {String(i + 1).padStart(2, '0')}
-              </div>
-              <div>
-                <div class="mb-2 text-base font-bold text-heading">{bullet.lead}</div>
-                <p class="text-sm leading-relaxed text-muted">{bullet.body}</p>
-              </div>
+          <div class="flex gap-8 bg-surface px-6 py-6 max-sm:flex-col max-sm:gap-2">
+            <div class="w-8 shrink-0 font-mono text-sm text-accent">
+              {String(i + 1).padStart(2, '0')}
+            </div>
+            <div>
+              <div class="mb-2 text-base font-semibold text-hi">{bullet.lead}</div>
+              <p class="text-sm leading-relaxed text-txt">{bullet.body}</p>
             </div>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Page footer strip -->
-    <div class="flex items-center justify-between border-t border-border pt-6">
-      <span class="text-sm text-subtle">Jonathan Blakemore · SEO Manager</span>
-      <a href="/case-studies" class="text-sm text-accent hover:underline">← Back to all case studies</a>
+    <!-- Footer strip -->
+    <div class="flex items-center justify-between border-t border-line pt-6">
+      <span class="label-mono text-dim">Jonathan Blakemore · SEO Manager</span>
+      <a href="/case-studies" class="label-mono text-dim transition-colors hover:text-accent">
+        ← All case studies
+      </a>
     </div>
 
   </main>

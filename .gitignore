@@ -27,3 +27,8 @@ assets/
 
 # jetbrains setting folder
 .idea/
+
+# design handoff + editor folders (not for repo)
+design_handoff/
+.claude/
+.vscode/

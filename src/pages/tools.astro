@@ -10,52 +10,58 @@ import Header from '../components/Header.astro';
 >
   <Header />
 
-  <main class="mx-auto max-w-4xl px-6 pb-20 pt-12">
+  <main class="flex-1 mx-auto w-full max-w-7xl px-10 max-md:px-5 py-12">
 
-    <a href="/" class="mb-8 inline-block text-sm text-accent hover:underline">← Back</a>
+    <!-- Breadcrumb -->
+    <div class="label-mono mb-6 text-dim">
+      <a href="/" class="transition-colors hover:text-accent">Home</a>
+      <span class="mx-2">/</span>
+      <span class="text-hi">Tools</span>
+    </div>
 
-    <div class="mb-3 text-[10px] uppercase tracking-widest text-subtle">Free Tools</div>
-    <h1 class="mb-4 text-4xl font-extrabold tracking-tight text-heading">Tools</h1>
-    <p class="mb-10 max-w-lg text-base leading-relaxed text-muted">
-      A small collection of tools I've built to make common SEO tasks faster. All free to use.
+    <h1 class="mb-4 text-[clamp(36px,5vw,64px)] font-bold leading-tight tracking-tight text-hi">
+      Tools<span class="text-accent">.</span>
+    </h1>
+    <p class="mb-12 max-w-lg text-base leading-relaxed text-txt">
+      A small collection of utilities I've built to make common SEO tasks faster.
+      All free to use, hosted as standalone apps.
     </p>
 
-    <div class="flex flex-col gap-4">
+    <!-- Tool rows -->
+    <div class="flex flex-col gap-px bg-line">
 
       <a
         href="https://hreflang-check.streamlit.app/"
         target="_blank"
         rel="noopener noreferrer"
-        class="group rounded-lg border border-border bg-surface px-6 py-5 transition-colors hover:border-accent"
+        class="group flex items-start justify-between gap-6 bg-surface px-6 py-6 transition-colors hover:bg-surface-raised"
       >
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <div class="mb-1.5 text-sm font-semibold text-heading">Hreflang Checker</div>
-            <p class="text-sm leading-relaxed text-subtle">
-              Extract the hreflang tags from any URL. Includes options to bypass website
-              authentication — useful for reviewing staging environments before go-live.
-            </p>
-          </div>
-          <div class="shrink-0 text-border transition-colors group-hover:text-accent">↗</div>
+        <div>
+          <div class="label-mono mb-3 text-dim">Tool_01 · Streamlit</div>
+          <div class="mb-2 text-xl font-bold text-hi">Hreflang Checker</div>
+          <p class="text-sm leading-relaxed text-txt">
+            Extract the hreflang tags from any URL. Includes options to bypass website
+            authentication — useful for reviewing staging environments before go-live.
+          </p>
         </div>
+        <div class="shrink-0 text-xl text-dim transition-colors group-hover:text-accent">↗</div>
       </a>
 
       <a
         href="https://sitemap-index-extractor.streamlit.app/"
         target="_blank"
         rel="noopener noreferrer"
-        class="group rounded-lg border border-border bg-surface px-6 py-5 transition-colors hover:border-accent"
+        class="group flex items-start justify-between gap-6 bg-surface px-6 py-6 transition-colors hover:bg-surface-raised"
       >
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <div class="mb-1.5 text-sm font-semibold text-heading">XML Sitemap Extractor</div>
-            <p class="text-sm leading-relaxed text-subtle">
-              Extract all URLs from an XML sitemap URL, including nested sitemap indexes.
-              Optional authentication bypass for staging site review.
-            </p>
-          </div>
-          <div class="shrink-0 text-border transition-colors group-hover:text-accent">↗</div>
+        <div>
+          <div class="label-mono mb-3 text-dim">Tool_02 · Streamlit</div>
+          <div class="mb-2 text-xl font-bold text-hi">XML Sitemap Extractor</div>
+          <p class="text-sm leading-relaxed text-txt">
+            Extract all URLs from an XML sitemap URL, including nested sitemap indexes.
+            Optional authentication bypass for staging site review.
+          </p>
         </div>
+        <div class="shrink-0 text-xl text-dim transition-colors group-hover:text-accent">↗</div>
       </a>
 
     </div>

@@ -1,6 +1,14 @@
 ---
 // src/layouts/Base.astro
+import '@fontsource/space-grotesk/400.css';
+import '@fontsource/space-grotesk/500.css';
+import '@fontsource/space-grotesk/600.css';
+import '@fontsource/space-grotesk/700.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '@fontsource/ibm-plex-mono/600.css';
 import '../styles/global.css';
+import Footer from '../components/Footer.astro';
 
 export interface Props {
   title: string;
@@ -24,7 +32,8 @@ const {
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   </head>
-  <body class="font-sans antialiased">
+  <body class="font-sans antialiased grid-bg min-h-screen flex flex-col">
     <slot />
+    <Footer />
   </body>
 </html>

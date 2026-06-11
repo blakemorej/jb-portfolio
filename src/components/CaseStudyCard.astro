@@ -5,25 +5,35 @@ import { formatDateRange } from '../utils/formatDate';
 
 export interface Props {
   config: CaseStudyConfig;
+  index: number;
 }
 
-const { config } = Astro.props;
+const { config, index } = Astro.props;
 const dateRange = formatDateRange(config.startDate, config.endDate);
-const headlineStat = config.stats[0];
+const stat = config.stats[0];
 ---
 
 <a
   href={`/case-studies/${config.slug}`}
-  class="group flex items-center justify-between rounded-lg border border-border bg-surface px-5 py-4 transition-colors hover:border-accent"
+  class="group flex items-center gap-6 border-t border-line bg-surface px-6 py-5 transition-colors hover:bg-surface-raised"
 >
-  <div>
-    <div class="text-sm font-semibold text-heading">{config.client}</div>
-    <div class="mt-0.5 text-[11px] text-subtle">
-      {config.industry} · {dateRange}
-    </div>
+  <!-- Index -->
+  <div class="w-8 shrink-0 font-mono text-xs text-accent">
+    {String(index).padStart(2, '0')}
   </div>
-  <div class="flex items-center gap-3">
-    <div class="text-sm font-semibold text-accent">{headlineStat.value} {headlineStat.label}</div>
-    <div class="text-border transition-colors group-hover:text-accent">→</div>
+
+  <!-- Client + meta -->
+  <div class="flex-1 min-w-0">
+    <div class="text-xl font-bold tracking-tight text-hi">{config.client}</div>
+    <div class="label-mono mt-1 text-dim">{config.industry} · {dateRange}</div>
   </div>
+
+  <!-- Headline stat -->
+  <div class="shrink-0 text-right">
+    <div class="text-2xl font-bold text-accent leading-none">{stat.value}</div>
+    <div class="label-mono mt-1 text-dim">{stat.label}</div>
+  </div>
+
+  <!-- Arrow -->
+  <div class="shrink-0 text-dim transition-colors group-hover:text-accent">→</div>
 </a>

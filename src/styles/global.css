@@ -1,27 +1,81 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #0f172a;
-  --color-surface: #1e293b;
-  --color-border: #334155;
-  --color-accent: #38bdf8;
-  --color-accent2: #818cf8;
-  --color-muted: #94a3b8;
-  --color-subtle: #64748b;
-  --color-heading: #f1f5f9;
-  --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Surfaces */
+  --color-bg:             #08090b;
+  --color-surface:        #0e1014;
+  --color-surface-raised: #141821;
+  --color-line:           #1b1f26;
+  --color-line-2:         #252b34;
+
+  /* Text */
+  --color-hi:    #eef2f7;
+  --color-txt:   #aeb6c2;
+  --color-dim:   #5b6470;
+  --color-faint: #3d454f;
+
+  /* Accent */
+  --color-accent:       #38bdf8;
+  --color-accent-hover: #7dd6fb;
+  --color-on-accent:    #06243a;
+  --color-accent-2:     #818cf8;
+
+  /* Chart semantics */
+  --color-amber: #f59e0b;
+  --color-red:   #f87171;
+  --color-green: #4ade80;
+
+  /* Type */
+  --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Radius: sharp everywhere */
+  --radius-none: 0;
+
+  /* Grid module */
+  --spacing-grid: 64px;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
+/* Faint 64px background grid — apply to a full-bleed wrapper */
+.grid-bg {
+  background-image:
+    linear-gradient(var(--color-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: -1px -1px;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Signature mono label — font + size + case + tracking only; set color separately */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
 }
 
-body {
-  background-color: #0f172a;
-  color: #f1f5f9;
-  min-height: 100vh;
+/* Portrait duotone: grayscale + sky tint overlay */
+.portrait-img {
+  filter: grayscale(1) brightness(1.05);
+  display: block;
 }
+.portrait-tint {
+  position: absolute;
+  inset: 0;
+  background: #38bdf8;
+  mix-blend-mode: color;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Blinking cursor for hero */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink { animation: blink 1s step-end infinite; }
+@media (prefers-reduced-motion: reduce) { .cursor-blink { animation: none; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html  { scroll-behavior: smooth; }
+body  { background: var(--color-bg); color: var(--color-hi); font-family: var(--font-sans); }
+::selection { background: rgba(56,189,248,.3); color: var(--color-hi); }
