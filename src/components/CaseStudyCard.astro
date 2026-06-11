@@ -18,22 +18,25 @@ const stat = config.stats[0];
   class="group flex items-center gap-6 border-t border-line bg-surface px-6 py-5 transition-colors hover:bg-surface-raised"
 >
   <!-- Index -->
-  <div class="w-8 shrink-0 font-mono text-xs text-accent">
+  <div class="w-8 shrink-0 pt-1 font-mono text-xs text-accent">
     {String(index).padStart(2, '0')}
   </div>
 
-  <!-- Client + meta -->
-  <div class="flex-1 min-w-0">
-    <div class="text-lg font-bold tracking-tight text-hi sm:text-xl">{config.client}</div>
-    <div class="label-mono mt-1 truncate text-dim">{config.industry} · {dateRange}</div>
-  </div>
+  <!-- Client + meta | stat — stacks on mobile, side-by-side on sm+ -->
+  <div class="flex flex-1 min-w-0 flex-col gap-3 sm:flex-row sm:items-center">
 
-  <!-- Headline stat -->
-  <div class="shrink-0 text-right">
-    <div class="text-xl font-bold text-accent leading-none sm:text-2xl">{stat.value}</div>
-    <div class="label-mono mt-1 hidden text-dim sm:block">{stat.label}</div>
+    <div class="flex-1 min-w-0">
+      <div class="text-xl font-bold tracking-tight text-hi">{config.client}</div>
+      <div class="label-mono mt-1 text-dim">{config.industry} · {dateRange}</div>
+    </div>
+
+    <div class="sm:shrink-0 sm:text-right">
+      <div class="text-2xl font-bold text-accent leading-none">{stat.value}</div>
+      <div class="label-mono mt-1 text-dim">{stat.label}</div>
+    </div>
+
   </div>
 
   <!-- Arrow -->
-  <div class="shrink-0 text-dim transition-colors group-hover:text-accent">→</div>
+  <div class="shrink-0 self-center text-dim transition-colors group-hover:text-accent">→</div>
 </a>
