@@ -4,16 +4,20 @@ import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
 import StatBadge from '../../components/StatBadge.astro';
 import ChartLoader from '../../components/ChartLoader.astro';
-import { getCaseStudySlugs, getCaseStudyConfig, getCaseStudyCSV } from '../../utils/getCaseStudies';
+import GeoChartLoader from '../../components/GeoChartLoader.astro';
+import { getCaseStudySlugs, getCaseStudyConfig, getCaseStudyCSV, getCaseStudyAICSV } from '../../utils/getCaseStudies';
 import { parseAhrefsCSV } from '../../utils/parseAhrefsCSV';
+import { parseAiCompetitorCSV } from '../../utils/parseAiCompetitorCSV';
 
 export async function getStaticPaths() {
   return getCaseStudySlugs().map(slug => ({ params: { slug } }));
 }
 
 const { slug } = Astro.params;
-const config = getCaseStudyConfig(slug!);
-const data   = parseAhrefsCSV(getCaseStudyCSV(slug!));
+const config    = getCaseStudyConfig(slug!);
+const data      = parseAhrefsCSV(getCaseStudyCSV(slug!));
+const aiRawCSV  = getCaseStudyAICSV(slug!);
+const aiData    = aiRawCSV ? parseAiCompetitorCSV(aiRawCSV) : null;
 ---
 
 <Base title={`${config.client} — ${config.headline} | Jonathan Blakemore`} description={config.intro}>
@@ -65,10 +69,23 @@ const data   = parseAhrefsCSV(getCaseStudyCSV(slug!));
       />
     </section>
 
+    <!-- AEO / GEO Visibility (only rendered when ai-data.csv exists) -->
+    {aiData && (
+      <section class="mb-16">
+        <div class="mb-6 flex items-center gap-4 border-b border-line pb-4">
+          <span class="font-mono text-xs text-accent">[02]</span>
+          <span class="label-mono text-dim">AEO / GEO Visibility</span>
+          <span class="flex-1"></span>
+          <span class="label-mono text-dim">Source · Ahrefs Brand Radar</span>
+        </div>
+        <GeoChartLoader data={aiData} />
+      </section>
+    )}
+
     <!-- What I Did -->
     <section class="mb-16">
       <div class="mb-6 flex items-center gap-4 border-b border-line pb-4">
-        <span class="font-mono text-xs text-accent">[02]</span>
+        <span class="font-mono text-xs text-accent">{aiData ? '[03]' : '[02]'}</span>
         <span class="label-mono text-dim">What I Did</span>
         <span class="flex-1"></span>
       </div>

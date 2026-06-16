@@ -44,3 +44,8 @@ export function getCaseStudyCSV(slug: string): string {
   const csvPath = path.join(STUDIES_DIR, slug, 'data.csv');
   return fs.readFileSync(csvPath, 'utf-8');
 }
+
+export function getCaseStudyAICSV(slug: string): string | null {
+  const csvPath = path.join(STUDIES_DIR, slug, 'ai-data.csv');
+  return fs.existsSync(csvPath) ? fs.readFileSync(csvPath, 'utf-8') : null;
+}
