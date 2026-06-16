@@ -16,7 +16,7 @@ const suf  = m?.[3] ?? '';
 ---
 
 <div class="flex flex-col py-6">
-  <div class="text-[40px] font-bold leading-none tracking-tight">
+  <div class="whitespace-nowrap font-bold leading-none tracking-tight text-[clamp(26px,5.5vw,40px)]">
     {pre && <span class="text-accent">{pre}</span>}
     <span class="text-hi">{num}</span>
     {suf && <span class="text-accent">{suf}</span>}
