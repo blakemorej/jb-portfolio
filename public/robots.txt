@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
 
-# Hi there, fellow SEO 👋
-# Yes, I checked robots.txt too. We're the same.
+# Hello there, fellow SEO 👋
+# Welcome to my robots.txt file.
 # No disallow rules here — nothing to hide, good crawl budget hygiene.
-# Now go touch some hreflang and drink some water.
+# And yes, the site is intentionally set to noindex. No, you don't need to tell me.
+# Now go touch some grass and drink some water.
