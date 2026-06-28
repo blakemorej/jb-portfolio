@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Hi there, fellow SEO 👋
+# Yes, I checked robots.txt too. We're the same.
+# No disallow rules here — nothing to hide, good crawl budget hygiene.
+# Now go touch some hreflang and drink some water.
