@@ -9,7 +9,7 @@ export interface CaseStudyStat {
 
 export interface CaseStudyBullet {
   lead: string;
-  body: string;
+  body: string | string[];
 }
 
 export interface CaseStudyConfig {

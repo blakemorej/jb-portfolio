@@ -97,7 +97,12 @@ const aiData    = aiRawCSV ? parseAiCompetitorCSV(aiRawCSV) : null;
             </div>
             <div>
               <div class="mb-2 text-base font-semibold text-hi">{bullet.lead}</div>
-              <p class="text-sm leading-relaxed text-txt">{bullet.body}</p>
+              {Array.isArray(bullet.body)
+                ? bullet.body.map(para => (
+                    <p class="text-sm leading-relaxed text-txt mt-3 first:mt-0">{para}</p>
+                  ))
+                : <p class="text-sm leading-relaxed text-txt">{bullet.body}</p>
+              }
             </div>
           </div>
         ))}

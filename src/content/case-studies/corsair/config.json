@@ -8,7 +8,7 @@
   "endDate": null,
   "migrationDate": "2023-05",
   "headline": "SEO Recovery & Growth",
-  "intro": "Following a major site migration in May 2023, organic non-brand traffic had dropped significantly. Taking over as SEO Manager in August 2023, the mandate was to recover lost ground then grow — through technical SEO, international expansion across 20 regions and 12 languages, and a content strategy for the CORSAIR Explorer blog.",
+  "intro": "Following a major site migration in May 2023, organic non-brand traffic had dropped significantly. Taking over as SEO Manager in August 2023, the mandate was to recover lost ground then grow — technical SEO, hreflang implementation across 20 regions and 12 languages, and a comprehensive content strategy for the CORSAIR Explorer blog.",
   "stats": [
     { "value": "+851%", "label": "Non-Brand Traffic", "period": "Aug 2023 → May 2026" },
     { "value": "+313%", "label": "Page 1 Keywords", "period": "Positions 4–10" },
@@ -18,23 +18,31 @@
   "bullets": [
     {
       "lead": "Post-migration recovery",
-      "body": "Diagnosed and resolved crawl and indexation issues caused by the May 2023 site migration, stabilising rankings within the first quarter."
+      "body": "Diagnosed and resolved crawl and indexation issues caused by a site migration in May 2023, before I joined. The migration left a number of missed and misconfigured 301 redirects. Rankings stabilised within the first quarter."
     },
     {
       "lead": "International SEO strategy",
-      "body": "Implemented technical and hreflang infrastructure across 20 regions and 12 languages for CORSAIR, Elgato, SCUF, and Fanatec."
+      "body": "Implemented technical and hreflang infrastructure across 20 regions and 12 languages for CORSAIR, Elgato, SCUF, and Fanatec. Hreflang was incomplete — covering only select regions and failing to correctly cross-reference between them. Users reaching the correct landing page for their language and country improved steadily following implementation."
     },
     {
       "lead": "Content strategy & optimisation",
-      "body": "Grew the CORSAIR Explorer blog from ~1k/mo to 1m+/mo through content ideation, optimisation, and SEO training for the editorial team."
+      "body": "Grew the CORSAIR Explorer blog from ~1k/mo to 1m+/mo through content ideation, optimisation, and AI-assisted translation. Informational content was the single biggest SEO gap on the site. Around 1/3rd of all referring domains now point to articles from the CORSAIR blog."
     },
     {
       "lead": "Core Web Vitals",
-      "body": "Achieved \"Good\" rating on all desktop metrics and 2 of 3 mobile metrics."
+      "body": "Achieved \"Good\" rating on all desktop metrics and 2 of 3 mobile metrics. All metrics were considered 'Poor' or 'Needs Improvement' prior to beginning work."
     },
     {
       "lead": "Reporting infrastructure",
-      "body": "Built custom Looker Studio dashboards for organic search reporting across all brands and regions."
+      "body": "Organic search reporting was limited to GA4 reporting. Since joining, I've built out custom Looker Studio dashboards and Claude automations to monitor organic search performance across GA4, GSC, Site Speed, Core Web Vitals and more."
+    },
+    {
+      "lead": "GEO / AI Search Optimisation",
+      "body": [
+        "Updated existing editorial content to improve coverage of AI prompt responses, using data from site logs and third-party tools to identify which pages were being cited and where gaps existed.",
+        "Updated existing product content to cover a broad range of expected user questions, use case queries, and tightened product tech specifications.",
+        "Conducted a site-wide JavaScript rendering audit of our content. Implemented sweeping changes to ensure all critical content was visible to AI crawlers and search bots."
+      ]
     }
   ]
 }
